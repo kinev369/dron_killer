@@ -47,11 +47,6 @@ namespace DronKiller
         {
 
         }
-        public Person(float X, float Y)
-        {
-            x_Position = X;
-            y_Position = Y;
-
-        }
+        
     }
 }
