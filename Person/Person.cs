@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DronKiller;
 
-namespace dron_killer
+namespace DronKiller
 {
-    public class Person
+    public class Person : GameElement
     {
         private float x_Position;
         private float y_Position;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DronKiller
 {
-    class Game_Element
+    class GameElement
     {
         public  float x;
         public  float y;

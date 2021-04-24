@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Dron;
+using DronKiller;
 
-namespace Dron
+namespace DronKiller
 {
-    public class Dron
+    public class Dron : GameElement
     {
         private float ChanceEvasion = 0.15; 
 
 
-        private DronWeapon Weapon { get; set; }
+        private IWeapon Weapon { get; set; }
 
-        public Dron(DronWeapon _weapon)
+        public Dron(IWeapon _weapon)
         {
             Weapon = _weapon;
         }
 
-        public void ChangeWeapon(DronWeapon _weapon)
+        public void ChangeWeapon(IWeapon _weapon)
         {
             Weapon = _weapon;
         }
@@ -31,11 +31,17 @@ namespace Dron
         {
             return random.NextDouble() <= ChanceEvasion;
         }
+
+        private void DoEvasionMove()
+        {
+
+        }
+
         public void MoveInOneStep()
         {
             if (EvasionAvailable())
             {
-                DoEvasion
+                DoEvasionMove();
             }
         }
     }
