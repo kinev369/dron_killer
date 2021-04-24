@@ -9,28 +9,13 @@ namespace DronKiller
 {
     public class Person : GameElement
     {
-        private float x_Position;
-        private float y_Position;
         private IWeapon weapon;
-        private IHolder holderv;
         private Invertary invert;
-
-        public float x_get_Position
-        {
-            get { return x_Position; }
-            set { x_Position = value; }
-        }
-
-        public float y_get_Position
-        {
-            get { return y_Position; }
-            set { y_Position = value; }
-        }
-
+        private float time1;
         public Person()
         {
-            x_Position = 0;
-            y_Position = 0;
+            x = 0;
+            y = 0;
             invert = new Invertary();
         }
         public void ShotKill(double X, double Y)
@@ -38,10 +23,24 @@ namespace DronKiller
         }
         public void move()
         {
-
+         x = x+speedX;  
         }
-        public void jump()
+        public void moveY(float Y){
+            y= y + Y;
+        }
+        public void jump(float time)
         {
+                if(y == 0){
+                    time1 = time;
+                    
+                }
+                else
+                  { 
+
+                  }
+
+
+                
 
         }
         public void take()

@@ -11,7 +11,7 @@ namespace DronKiller
         public float damage = 30;
         public void Shot()
         {
-
+            
         }
     }
 }
