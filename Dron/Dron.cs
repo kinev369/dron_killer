@@ -7,7 +7,8 @@ namespace DronKiller
 {
     public class Dron : GameElement
     {
-        private float ChanceEvasion = 0.15; 
+        //private float ChanceEvasion = 0.15;
+        private float ViewingRadius = 50;
 
 
         private IWeapon Weapon { get; set; }
@@ -27,22 +28,25 @@ namespace DronKiller
             Weapon.Shot();
         }
 
-        private bool EvasionAvailable()
-        {
-            return random.NextDouble() <= ChanceEvasion;
-        }
+//        private bool EvasionAvailable()
+//        {
+//            return random.NextDouble() <= ChanceEvasion;
+//        }
 
-        private void DoEvasionMove()
-        {
+//        private void DoEvasionMove()
+//        {
 
-        }
+//        }
 
         public void MoveInOneStep()
         {
-            if (EvasionAvailable())
-            {
-                DoEvasionMove();
-            }
+            //            if (EvasionAvailable())
+            //            {
+            //                DoEvasionMove();
+            //            }
+
+            X += SpeedX * (random.NextDouble() + 0.5);
+            Y += SpeedY * (random.NextDouble() + 0.5);
         }
     }
 }

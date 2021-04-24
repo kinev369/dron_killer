@@ -8,8 +8,11 @@ namespace DronKiller
 {
     class GameElement
     {
-        public  float x;
-        public  float y;
+        private float X { get; set; }
+        private float Y { get; set; }
+
+        private float SpeedX { get; set; }
+        private float SpeedY { get; set; }
 
     }
 }

@@ -14,11 +14,13 @@ namespace DronKiller
         private IWeapon weapon;
         private IHolder holderv;
         private Invertary invert;
+
         public float x_get_Position
         {
             get { return x_Position; }
             set { x_Position = value; }
         }
+
         public float y_get_Position
         {
             get { return y_Position; }
