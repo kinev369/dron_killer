@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections;
 using DronKiller;
-using System.Runtime.dll;
+using System.Runtime;
+using System.Collections.Generic;
 
 namespace DronKiller
 {
     public class ShotBazooka
     {
         
-        public static ArrayList<int> DronIsShotedHit(float shotX, float shotY, float presonX, float presonY, ArrayList<Dron> drons)
+        public static List<int> DronIsShotedHit(float shotX, float shotY, float presonX, float presonY, List<Dron> drons)
         {
             float coofX, coofY, coofFree;
             float distance;
@@ -21,12 +22,12 @@ namespace DronKiller
                 coofY = presonX - shotX;
                 coofFree = presonY * shotX - presonX * shotY;
 
-                distance = Math.Abs(coofX * dron.X + coofY * dron.Y + coofFree) / Math.Sqrt(coofX * coofX + coofY * coofY);
-                if (distance <= dron.radius)
+                distance = (float)(Math.Abs((coofX * dron.X) + coofY * dron.Y + coofFree) / Math.Sqrt(coofX * coofX + coofY * coofY));
+                if (distance <= dron.Radius)
                 {
                     if (Math.Sqrt(Math.Pow(presonY - dron.Y, 2) + Math.Pow(presonX - dron.X, 2)) < minDistDron)
                     {
-                        minDistDron = Math.Sqrt(Math.Pow(presonY - dron.Y, 2) + Math.Pow(presonX - dron.X, 2));
+                        minDistDron = (float)Math.Sqrt(Math.Pow(presonY - dron.Y, 2) + Math.Pow(presonX - dron.X, 2));
                         result = indexDron;
                     }
                 }
@@ -35,9 +36,9 @@ namespace DronKiller
 
             if (result != -1)
             {
-                ArrayList<int> resultArr = new ArrayList<int>();
+                List<int> resultArr = new List<int>();
                 resultArr.Add(result);
-                return new ArrayList(resultArr);
+                return resultArr;
             }
 
             return null;

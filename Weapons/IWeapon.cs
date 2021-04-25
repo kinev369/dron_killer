@@ -8,6 +8,6 @@ namespace DronKiller
 {
   public interface IWeapon
     {
-        void ShotInDron(float shotX, float shotY, float presonX, float presonY, ArrayList<Dron> drons);
+        List<int> ShotInDron(float shotX, float shotY, float presonX, float presonY, List<Dron> drons);
     }
 }

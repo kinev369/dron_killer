@@ -13,19 +13,23 @@ namespace DronKiller
         private Invertary invert;
         private float time_begin;
         public float y_begin_jump= 0;
-
         private float time1;
 
+
+        public bool jumps;
         public Person()
         {
             x = 0;
             y = 0;
+            speedX = 0.1f;
+            speedY = 0.1f; 
+            jumps = false;
             invert = new Invertary();
             weapon = new WeaponBazooka();
 
         }
 
-        public ArrayList<int> ShotKill(float shotX, float shotY, ArrayList<Dron> drons)
+        public List<int> ShotKill(float shotX, float shotY, List<Dron> drons)
         {
             return weapon.ShotInDron(shotX, shotY, X, Y, drons);
         }
@@ -35,21 +39,25 @@ namespace DronKiller
          x = x+speedX;  
         }
 
-        public void MoveY(float Y){
-            y= y + Y;
+        public void MoveY(float time){
+            if (jumps == true)
+            {
+                float t = time - time_begin;
+                y = y + speedY * t - (g * t * t) / 2;
+                if ((2 * speedY / g) < t)
+                {
+                    jumps = false;
+                    time_begin = 0;
+                }
+
+            }
+
         }
 
         public void Jump(float time)
         {
-            if(y_begin_jump == 0){
-                time_begin = time;
-                y_begin_jump = y;
-            }
-            else{ 
-                
-                float t =  time-time_begin ;
-                y = speedY*t - (g*t*t)/2;
-            }
+            time_begin = time;
+            jumps = true;
         }
 
         public void Take()

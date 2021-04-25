@@ -9,9 +9,11 @@ namespace DronKiller
     public class WeaponBazooka : Item, IWeapon
     {
 
-        public ArrayList<int> ShotInDron(float shotX, float shotY, float presonX, float presonY, ArrayList<Dron> drons)
+        public List<int> ShotInDron(float shotX, float shotY, float presonX, float presonY, List<Dron> drons)
         {
             return ShotBazooka.DronIsShotedHit(shotX, shotY, presonX, presonY, drons);
         }
+
+
     }
 }

@@ -8,10 +8,11 @@ namespace DronKiller
     public class Dron : GameElement
     {
         //private float ChanceEvasion = 0.15;
-        private float radius = 0.5f;
+        public float Radius { set; get; }
 
         public Dron(float x, float y, float speedPersonX, float speedPersonY)
         {
+            Radius = 0.5f;
             X = x;
             Y = y;
             speedX = UnityEngine.Random.Range(0f, 0.1f);
@@ -35,7 +36,7 @@ namespace DronKiller
 
         public void DoAttack()
         {
-            Weapon.Shot();
+            //Weapon.ShotInDron();
         }
 
 //        private bool EvasionAvailable()
