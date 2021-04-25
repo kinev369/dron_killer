@@ -11,7 +11,8 @@ namespace DronKiller
     {
         private IWeapon weapon;
         private Invertary invert;
-        private float time1;
+        private float time_begin;
+        public float y_begin_jump= 0;
         public Person()
         {
             x = 0;
@@ -21,27 +22,24 @@ namespace DronKiller
         public void ShotKill(double X, double Y)
         {
         }
-        public void move()
+        public void Move()
         {
          x = x+speedX;  
         }
-        public void moveY(float Y){
+        public void MoveY(float Y){
             y= y + Y;
         }
-        public void jump(float time)
+        public void Jump(float time)
         {
-                if(y == 0){
-                    time1 = time;
-                    
-                }
-                else
-                  { 
-
-                  }
-
-
+            if(y_begin_jump == 0){
+                time_begin = time;
+                y_begin_jump = y;
+            }
+            else{ 
                 
-
+                float t =  time-time_begin ;
+                y = speedY*t - (g*t*t)/2;
+            }
         }
         public void take()
         {
