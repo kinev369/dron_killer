@@ -52,8 +52,8 @@ namespace DronKiller
             //                DoEvasionMove();
             //            }
 
-            X += (SpeedX + 0.5) * (random.NextDouble() - 0.2);
-            Y += (SpeedY + 0.5) * (random.NextDouble() - 0.2);
+            X += (SpeedX + 0.5f) * (UnityEngine.Random.Range(0.0f, 1.0f) - 0.2f);
+            Y += (SpeedY + 0.5f) * (UnityEngine.Random.Range(0.0f, 1.0f) - 0.2f);
         }
 
 
